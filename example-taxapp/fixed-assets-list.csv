@@ -1,0 +1,71 @@
+Asset ID,Asset Class,Asset Description,Acquisition Cost,Acquisition Date,Useful Life (years),Salvage Value,Depreciation Method,Depreciable Basis,Annual Depreciation,Accumulated Depreciation,Book Value
+1,00.11,Executive Desk,5000,2020-01-15,7,500,Straight Line,4500,642.86,2571.44,2428.56
+2,00.12,Workstation,1500,2021-03-20,5,150,Double Declining Balance,1350,270,1080,270
+3,00.13,Server,10000,2019-05-01,6,1000,Straight Line,9000,1500,9000,1000
+4,00.22,Company Car,25000,2022-08-10,5,2500,Straight Line,22500,4500,4500,20000
+5,00.241,Delivery Truck,18000,2021-11-02,4,1800,Double Declining Balance,16200,4050,8100,9900
+6,00.11,Office Chairs,1200,2023-01-20,7,120,Straight Line,1080,154.29,154.29,1045.71
+7,00.12,Laptop,1000,2022-06-15,5,100,Double Declining Balance,900,180,360,640
+8,00.27,Cargo Trailer,8000,2020-09-03,6,800,Straight Line,7200,1200,4800,3200
+9,00.11,Conference Table,3000,2019-12-12,7,300,Straight Line,2700,385.71,1542.86,1457.14
+10,00.22,Sales Vehicle,22000,2023-04-05,5,2200,Straight Line,19800,3960,3960,15840
+11,00.12,Desktop Computer,800,2021-07-28,5,80,Double Declining Balance,720,144,576,244
+12,00.242,Tow Truck,35000,2020-02-20,6,3500,Straight Line,31500,5250,21000,14000
+13,00.13,Network Switch,500,2022-10-01,6,50,Straight Line,450,75,75,425
+14,00.11,Filing Cabinet,600,2023-03-17,7,60,Straight Line,540,77.14,77.14,522.86
+15,00.21,Company Airplane,150000,2019-08-22,6,15000,Straight Line,135000,22500,90000,60000
+16,00.26,Semi-Truck,80000,2021-05-10,4,8000,Double Declining Balance,72000,18000,36000,44000
+17,00.12,Printer,300,2022-12-08,5,30,Double Declining Balance,270,54,108,192
+18,00.23,Passenger Bus,60000,2020-07-01,9,6000,Straight Line,54000,6000,24000,36000
+19,00.11,Whiteboard,200,2023-05-25,7,20,Straight Line,180,25.71,25.71,174.29
+20,00.25,Freight Car,40000,2019-11-18,15,4000,Straight Line,36000,2400,14400,25600
+21,00.12,Keyboard,75,2023-01-05,5,5,Double Declining Balance,70,14,14,61
+22,00.241,Cargo Van,15000,2022-09-28,4,1500,Double Declining Balance,13500,3375,3375,11625
+23,00.11,Office Desk,400,2021-04-12,7,40,Straight Line,360,51.43,205.72,194.28
+24,00.13,Router,120,2020-06-03,6,12,Straight Line,108,18,72,48
+25,00.22,Company Truck,28000,2023-02-18,5,2800,Straight Line,25200,5040,5040,20160
+26,00.27,Flatbed Trailer,7000,2021-10-25,6,700,Straight Line,6300,1050,2100,4900
+27,00.12,Monitor,250,2022-08-01,5,25,Double Declining Balance,225,45,90,160
+28,00.242,Dump Truck,45000,2020-03-10,6,4500,Straight Line,40500,6750,27000,18000
+29,00.11,Bookcase,350,2023-05-04,7,35,Straight Line,315,45,45,305
+30,00.13,Modem,80,2021-09-17,6,8,Straight Line,72,12,36,44
+31,00.21,Helicopter,200000,2019-12-05,6,20000,Straight Line,180000,30000,120000,80000
+32,00.26,Tractor Unit,75000,2022-07-21,4,7500,Double Declining Balance,67500,16875,33750,41250
+33,00.12,Scanner,180,2023-02-28,5,18,Double Declining Balance,162,32.4,32.4,129.6
+34,00.23,City Bus,55000,2020-11-12,9,5500,Straight Line,49500,5500,22000,33000
+35,00.11,Ergonomic Chair,550,2021-06-20,7,55,Straight Line,495,70.71,282.86,267.14
+36,00.25,Tank Car,38000,2019-08-08,15,3800,Straight Line,34200,2280,13680,24320
+37,00.12,Webcam,50,2022-10-15,5,5,Double Declining Balance,45,9,18,32
+38,00.241,Box Truck,16000,2021-05-03,4,1600,Double Declining Balance,14400,3600,7200,8800
+39,00.11,Lamp,80,2023-04-27,7,8,Straight Line,72,10.29,10.29,69.71
+40,00.13,Firewall,300,2020-09-22,6,30,Straight Line,270,45,180,120
+41,00.22,Minivan,26000,2022-12-14,5,2600,Straight Line,23400,4680,4680,18720
+42,00.27,Refrigerated Trailer,12000,2021-08-19,6,1200,Straight Line,10800,1800,3600,8400
+43,00.12,Mouse,30,2023-01-10,5,3,Double Declining Balance,27,5.4,5.4,24.6
+44,00.242,Garbage Truck,50000,2020-07-08,6,5000,Straight Line,45000,7500,30000,20000
+45,00.11,Coat Rack,100,2022-06-01,7,10,Straight Line,90,12.86,12.86,87.14
+46,00.13,Switch,60,2021-12-20,6,6,Straight Line,54,9,18,42
+47,00.21,Private Jet,1800000,2019-05-29,6,180000,Straight Line,1620000,270000,1080000,720000
+48,00.26,Log Truck,90000,2022-09-06,4,9000,Double Declining Balance,81000,20250,20250,69750
+49,00.12,External Hard Drive,150,2023-03-15,5,15,Double Declining Balance,135,27,27,108
+50,00.23,School Bus,48000,2020-10-28,9,4800,Straight Line,43200,4800,19200,28800
+51,00.11,Office Plant,50,2021-08-23,7,5,Straight Line,45,6.43,25.72,24.28
+52,00.25,Coal Hopper,42000,2019-07-17,15,4200,Straight Line,37800,2520,15120,26880
+53,00.12,Microphone,80,2022-11-09,5,8,Double Declining Balance,72,14.4,14.4,65.6
+54,00.241,Refrigerated Van,17000,2021-04-14,4,1700,Double Declining Balance,15300,3825,7650,9650
+55,00.11,Bulletin Board,70,2023-06-02,7,7,Straight Line,63,9,9,61
+56,00.13,Server Rack,5000,2020-12-01,6,500,Straight Line,4500,750,3000,2000
+57,00.22,Sports Car,30000,2023-01-25,5,3000,Straight Line,27000,5400,5400,21600
+58,00.27,Livestock Trailer,9000,2021-09-29,6,900,Straight Line,8100,1350,2700,6400
+59,00.12,Projector,500,2022-08-22,5,50,Double Declining Balance,450,90,180,320
+60,00.242,Cement Mixer,60000,2020-05-18,6,6000,Straight Line,54000,9000,36000,24000
+61,00.11,Water Cooler,200,2023-04-03,7,20,Straight Line,180,25.71,25.71,174.29
+62,00.13,UPS,250,2021-11-16,6,25,Straight Line,225,37.5,75,175
+63,00.21,Crop Duster,120000,2019-09-11,6,12000,Straight Line,108000,18000,72000,48000
+64,00.26,Car Carrier,85000,2022-10-27,4,8500,Double Declining Balance,76500,19125,19125,66875
+65,00.12,Digital Camera,400,2023-02-08,5,40,Double Declining Balance,360,72,72,288
+66,00.23,Tour Bus,65000,2020-08-25,9,6500,Straight Line,58500,6500,26000,39000
+67,00.11,Office Partition,150,2021-07-12,7,15,Straight Line,135,19.29,77.14,72.86
+68,00.25,Boxcar,36000,2019-06-05,15,3600,Straight Line,32400,2160,12960,23040
+69,00.12,External DVD Drive,60,2022-12-19,5,6,Double Declining Balance,54,10.8,10.8,49.2
+70,00.241,Flatbed Truck,19000,2021-03-22,4,1900,Double Declining Balance,17100,4275,8550,10450

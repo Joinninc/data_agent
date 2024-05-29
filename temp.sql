@@ -1,4 +1,14 @@
   
+-- first make tables and insert data into them 
+-- tables :  
+-- fixed-assets-list
+-- Table B-1-Table-of-Class-Lives-and-Recovery-Periods
+-- Table-A-1-Half-Year Convention
+-- Table-A-2-Mid-Quarter-Convention
+
+
+
+
 --make macrs_depreciation table    
    
    CREATE TABLE macrs_depreciation (
@@ -6,7 +16,7 @@
     Depreciation_Year INT,
     Depreciation_Amount DECIMAL(10, 2),
 --    PRIMARY KEY (Asset_ID),
-    FOREIGN KEY (Asset_ID) REFERENCES assets(Asset_ID)
+    FOREIGN KEY (Asset_ID) REFERENCES fixed-assets-list(Asset_ID)
 );
 
    
@@ -31,15 +41,15 @@ SELECT
         END / 100
     ) AS Depreciation_Amount
 FROM 
-    assets a
+    fixed-assets-list a
 JOIN 
-    AssetClasses  t
+    Table B-1-Table-of-Class-Lives-and-Recovery-Periods  t
 ON 
     a.Asset_Class = t."AssetClass"
 CROSS JOIN 
     (SELECT 1 AS seq UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12 UNION ALL SELECT 13 UNION ALL SELECT 14 UNION ALL SELECT 15 UNION ALL SELECT 16 UNION ALL SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19 UNION ALL SELECT 20) y
 JOIN 
-    Halfyearconvention d
+    Table-A-1-Half-Year Convention d
 ON 
     y.seq = d.Year
 WHERE 
@@ -68,15 +78,15 @@ SELECT
         END / 100
     ) AS Depreciation_Amount
 FROM 
-    assets a
+    fixed-assets-list a
 JOIN 
-    AssetClasses  t
+    Table B-1-Table-of-Class-Lives-and-Recovery-Periods  t
 ON 
     a.Asset_Class = t."AssetClass"
 CROSS JOIN 
     (SELECT 1 AS seq UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12 UNION ALL SELECT 13 UNION ALL SELECT 14 UNION ALL SELECT 15 UNION ALL SELECT 16 UNION ALL SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19 UNION ALL SELECT 20) y
 JOIN 
-    "Midquarterconvention" d
+    "Table-A-2-Mid-Quarter-Convention" d
 ON 
     y.seq = d.Year
 WHERE 
@@ -97,7 +107,7 @@ SELECT
     seq AS Depreciation_Year, 
     Depreciable_Basis / Useful_Life_Years AS Depreciation_Amount
 FROM 
-    assets
+    fixed-assets-list
 CROSS JOIN 
     (SELECT 1 AS seq UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12 UNION ALL SELECT 13 UNION ALL SELECT 14 UNION ALL SELECT 15 UNION ALL SELECT 16 UNION ALL SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19 UNION ALL SELECT 20) y
 WHERE 
@@ -134,7 +144,7 @@ SET
         Asset_ID = md.Asset_ID AND Depreciation_Year <= md.Depreciation_Year),
     Book_Value = 
     (SELECT 
-        (SELECT Acquisition_Cost FROM assets WHERE Asset_ID = md.Asset_ID) - 
+        (SELECT Acquisition_Cost FROM fixed-assets-list WHERE Asset_ID = md.Asset_ID) - 
         COALESCE(
             (SELECT 
                 SUM(Depreciation_Amount) 

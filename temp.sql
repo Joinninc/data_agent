@@ -156,10 +156,40 @@ SET
             0)
     );
 
--- Check the updated macrs_depreciation table
-SELECT *
-FROM macrs_depreciation
-ORDER BY Asset_ID;
+-- -- Check the updated macrs_depreciation table
+-- SELECT *
+-- FROM macrs_depreciation
+-- ORDER BY Asset_ID;
 
    
+
+
+
+
    
+   -- Consolidate output with all columns from fixed_assets_list table and remove Total_Depreciation_Amount
+SELECT 
+    a.Asset_ID,
+    a.Asset_Class,
+    a.Acquisition_Cost,
+    a.Depreciable_Basis,
+    a.Useful_Life_Years,
+    a.Depreciation_Method,
+    MAX(md.Accumulated_Depreciation) AS Final_Accumulated_Depreciation,
+    MIN(md.Book_Value) AS Final_Book_Value
+FROM 
+    macrs_depreciation md
+JOIN 
+    assets a  
+ON 
+    md.Asset_ID = a.Asset_ID
+GROUP BY 
+    a.Asset_ID,
+    a.Asset_Class,
+    a.Acquisition_Cost,
+    a.Depreciable_Basis,
+    a.Useful_Life_Years,
+    a.Depreciation_Method
+ORDER BY 
+    a.Asset_ID;
+

@@ -1,12 +1,49 @@
-  
--- first make tables and insert data into them 
--- tables :  
--- fixed-assets-list
--- Table B-1-Table-of-Class-Lives-and-Recovery-Periods
--- Table-A-1-Half-Year Convention
--- Table-A-2-Mid-Quarter-Convention
+/*
+-- This SQL script creates tables, inserts data into them, and performs various operations related to depreciation calculations and asset management.
+-- Below are the details of each section of the script:
 
+-- Tables Created:
+1. fixed-assets-list
+2. Table B-1-Table-of-Class-Lives-and-Recovery-Periods
+3. Table-A-1-Half-Year Convention
+4. Table-A-2-Mid-Quarter-Convention
+5. macrs_depreciation
 
+-- Columns in macrs_depreciation table:
+1. Asset_ID (foreign key referencing fixed-assets-list)
+2. Depreciation_Year
+3. Depreciation_Amount
+4. Accumulated_Depreciation (added later)
+5. Book_Value (added later)
+
+-- SQL Operations:
+1. Inserts MACRS depreciation data using Half-Year Convention into macrs_depreciation table.
+2. Inserts MACRS depreciation data using Mid-Quarter Convention into macrs_depreciation table.
+3. Inserts Straight Line depreciation data into macrs_depreciation table.
+4. Adds Accumulated_Depreciation column to macrs_depreciation table.
+5. Adds Book_Value column to macrs_depreciation table.
+6. Updates Accumulated_Depreciation and Book_Value columns in macrs_depreciation table.
+7. Consolidates output with all columns from fixed_assets_list table and removes Total_Depreciation_Amount.
+
+-- Joins and Relationships:
+1. For MACRS depreciation data insertion:
+   - fixed-assets-list is joined with Table B-1-Table-of-Class-Lives-and-Recovery-Periods on Asset_Class.
+   - The result is cross joined with Half-Year Convention or Mid-Quarter-Convention tables.
+2. For Straight Line depreciation data insertion:
+   - No explicit join, but data from fixed-assets-list is used directly.
+
+-- Columns Used in Joins:
+1. fixed-assets-list: Asset_ID, Asset_Class, Depreciable_Basis, Depreciation_Method, Useful_Life_Years.
+2. Table B-1-Table-of-Class-Lives-and-Recovery-Periods: AssetClass, GDSRecoveryPeriod.
+3. Half-Year Convention and Mid-Quarter Convention tables: Various columns representing depreciation rates for different years.
+
+-- Operations on macrs_depreciation table:
+1. Insertions: Asset_ID, Depreciation_Year, Depreciation_Amount.
+2. Updates: Accumulated_Depreciation, Book_Value.
+3. Final Output: Asset_ID, Asset_Class, Acquisition_Cost, Depreciable_Basis, Useful_Life_Years, Depreciation_Method, Final_Accumulated_Depreciation, Final_Book_Value.
+
+-- Note: The script assumes that the tables and necessary data are already present in the database.
+*/
 
 
 --make macrs_depreciation table    
@@ -164,9 +201,7 @@ SET
    
 
 
-
-
-   
+ 
    -- Consolidate output with all columns from fixed_assets_list table and remove Total_Depreciation_Amount
 SELECT 
     a.Asset_ID,

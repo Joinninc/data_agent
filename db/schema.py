@@ -3,35 +3,6 @@ import pandas as pd
 
 def create_tables(conn):
     c = conn.cursor()
-    
-    # # Create fixed_assets_list table if it doesn't exist
-    # c.execute('''
-    #     CREATE TABLE IF NOT EXISTS fixed_assets_list (
-    #         Asset_ID INT PRIMARY KEY,
-    #         Asset_Class TEXT,
-    #         Acquisition_Cost DECIMAL(10, 2),
-    #         Depreciable_Basis DECIMAL(10, 2),
-    #         Useful_Life_years INT,
-    #         Depreciation_Method TEXT
-    #     )
-    # ''')
-
-
-#     c.execute('''
-#     CREATE TABLE IF NOT EXISTS fixed_assets_list (
-#         Asset_ID INT PRIMARY KEY,
-#         Asset_Class TEXT,
-#         Asset_Description TEXT,
-#         Acquisition_Cost DECIMAL(10, 2),
-#         Acquisition_Date DATE,
-#         Useful_Life_years INT,
-#         Salvage_Value DECIMAL(10, 2),
-#         Depreciation_Method TEXT,
-#         Depreciable_Basis DECIMAL(10, 2),
-#         Annual_Depreciation DECIMAL(10, 2)
-#     )
-# ''')
-
 
     # Drop the fixed_assets_list table if it exists
     c.execute('DROP TABLE IF EXISTS fixed_assets_list;')
@@ -48,18 +19,13 @@ def create_tables(conn):
             Salvage_Value DECIMAL(10, 2),
             Depreciation_Method TEXT,
             Depreciable_Basis DECIMAL(10, 2)
-            );
-           ''')
+        );
+    ''')
 
-# Annual_Depreciation DECIMAL(10, 2)
+    # Drop the macrs_depreciation table if it exists
+    c.execute('DROP TABLE IF EXISTS macrs_depreciation;')
 
-
-# Drop the Table-A-2-Mid-Quarter-Convention table if it exists
-    c.execute('''
-    DROP TABLE IF EXISTS "macrs_depreciation";
-''')
-
-    # Create macrs_depreciation table if it doesn't exist
+    # Create macrs_depreciation table
     c.execute('''
         CREATE TABLE macrs_depreciation (
             Asset_ID INT,
@@ -68,32 +34,24 @@ def create_tables(conn):
             Accumulated_Depreciation DECIMAL(18, 2),
             Book_Value DECIMAL(18, 2),
             FOREIGN KEY (Asset_ID) REFERENCES fixed_assets_list(Asset_ID)
-        )
+        );
     ''')
 
+    # Drop the Table B-1-Table-of-Class-Lives-and-Recovery-Periods table if it exists
+    c.execute('DROP TABLE IF EXISTS "Table B-1-Table-of-Class-Lives-and-Recovery-Periods";')
 
-
-
-    c.execute('''
-    DROP TABLE IF EXISTS "Table B-1-Table-of-Class-Lives-and-Recovery-Periods";
-''')
-
-
-    # Create Table B-1-Table-of-Class-Lives-and-Recovery-Periods if it doesn't exist
+    # Create Table B-1-Table-of-Class-Lives-and-Recovery-Periods table
     c.execute('''
         CREATE TABLE IF NOT EXISTS "Table B-1-Table-of-Class-Lives-and-Recovery-Periods" (
             Asset_Class TEXT,
             GDS_MACRS_Recovery_Period_years INT
-        )
+        );
     ''')
 
     # Drop the Table-A-1-Half-Year-Convention table if it exists
-    c.execute('''
-    DROP TABLE IF EXISTS "Table-A-1-Half-Year-Convention";
-''')
+    c.execute('DROP TABLE IF EXISTS "Table-A-1-Half-Year Convention";')
 
-
-    # Create Table-A-1-Half-Year Convention if it doesn't exist
+    # Create Table-A-1-Half-Year Convention table
     c.execute('''
         CREATE TABLE IF NOT EXISTS "Table-A-1-Half-Year Convention" (
             Year INT,
@@ -103,19 +61,15 @@ def create_tables(conn):
             TenYear DECIMAL(10, 2),
             FifteenYear DECIMAL(10, 2),
             TwentyYear DECIMAL(10, 2)
-        )
+        );
     ''')
 
+    # Drop the Table-A-2-Mid-Quarter-Convention table if it exists
+    c.execute('DROP TABLE IF EXISTS "Table-A-2-Mid-Quarter-Convention";')
 
-# Drop the Table-A-2-Mid-Quarter-Convention table if it exists
+    # Create Table-A-2-Mid-Quarter-Convention table
     c.execute('''
-    DROP TABLE IF EXISTS "Table-A-2-Mid-Quarter-Convention";
-''')
-
-
-    # Create Table-A-2-Mid-Quarter-Convention if it doesn't exist
-    c.execute('''
-        CREATE TABLE "Table-A-2-Mid-Quarter-Convention" (
+        CREATE TABLE IF NOT EXISTS "Table-A-2-Mid-Quarter-Convention" (
             Year INT,
             ThreeYear DECIMAL(10, 2),
             FiveYear DECIMAL(10, 2),
@@ -123,9 +77,9 @@ def create_tables(conn):
             TenYear DECIMAL(10, 2),
             FifteenYear DECIMAL(10, 2),
             TwentyYear DECIMAL(10, 2)
-        )
+        );
     ''')
-    
+
     conn.commit()
 
 def populate_tables(conn):
